@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import com.masum.gallery.R
 import com.masum.gallery.common.BaseFragment
 import com.masum.gallery.databinding.FragmentGalleryBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class GalleryFragment : BaseFragment(R.layout.fragment_gallery) {
 
     private lateinit var binding: FragmentGalleryBinding

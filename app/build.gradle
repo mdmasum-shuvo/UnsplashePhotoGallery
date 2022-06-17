@@ -17,6 +17,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "BASE_URL", "\"" + getBaseUrl() + "\""
+        buildConfigField "String", "ACCESS_KEY", "\"" + getAccessKey() + "\""
     }
 
     buildFeatures {
@@ -37,7 +39,27 @@ android {
         jvmTarget = '1.8'
     }
 }
+def getBaseUrl() {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
+    String baseUrl = properties.getProperty("base_url")
+    if (baseUrl == null)
+        throw new GradleException("")
+
+    return baseUrl
+}
+
+def getAccessKey() {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+    String key = properties.getProperty("access_key")
+    if (key == null)
+        throw new GradleException("")
+
+    return key
+}
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.8.0'

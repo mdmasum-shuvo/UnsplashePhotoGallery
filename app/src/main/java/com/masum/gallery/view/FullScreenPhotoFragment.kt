@@ -9,8 +9,9 @@ import android.view.ViewGroup
 import com.masum.gallery.R
 import com.masum.gallery.common.BaseFragment
 import com.masum.gallery.databinding.FragmentFullScreenPhotoBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class FullScreenPhotoFragment : BaseFragment(R.layout.fragment_full_screen_photo) {
 
     private lateinit var binding:FragmentFullScreenPhotoBinding
