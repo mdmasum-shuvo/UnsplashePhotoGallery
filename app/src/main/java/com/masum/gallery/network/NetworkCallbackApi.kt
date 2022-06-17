@@ -1,5 +1,6 @@
 package com.masum.gallery.network
 
+import com.masum.gallery.model.GalleryResponse
 import com.masum.gallery.model.GalleryResponseItem
 import com.masum.gallery.network.HttpParam.PAGE
 import com.masum.gallery.network.HttpParam.PHOTO
@@ -11,7 +12,7 @@ interface NetworkCallbackApi {
 
 
     @POST(PHOTO)
-    suspend fun requestGalleryPhoto(@Query(PAGE) page:String) :List<GalleryResponseItem>
+    suspend fun requestGalleryPhoto(@Query(PAGE) page:String) :GalleryResponse
 
 
 
