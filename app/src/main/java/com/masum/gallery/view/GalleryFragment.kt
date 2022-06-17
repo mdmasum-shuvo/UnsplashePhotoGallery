@@ -6,16 +6,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.masum.gallery.R
+import com.masum.gallery.common.BaseFragment
+import com.masum.gallery.databinding.FragmentGalleryBinding
 
 
-class GalleryFragment : Fragment() {
+class GalleryFragment : BaseFragment(R.layout.fragment_gallery) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_gallery, container, false)
+    private lateinit var binding: FragmentGalleryBinding
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentGalleryBinding.bind(view)
     }
+
+    override fun initListener() {
+    }
+
+    override fun observeData() {
+    }
+
 
 }
