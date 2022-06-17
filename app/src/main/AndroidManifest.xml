@@ -8,6 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.UnsplashePhotoGallery" />
+        android:theme="@style/Theme.UnsplashePhotoGallery">
+        <activity
+            android:name=".common.MainActivity"
+            android:exported="false" />
+    </application>
 
 </manifest>
