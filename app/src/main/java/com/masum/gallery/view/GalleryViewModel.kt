@@ -25,8 +25,8 @@ class GalleryViewModel  @Inject constructor(var useCase: GalleryApiUseCase) : Vi
 
 
 
-    fun getGalleryPhoto() {
-        useCase.invoke("1").onEach { result ->
+    fun getGalleryPhoto(page:Int) {
+        useCase.invoke(page.toString()).onEach { result ->
             when (result) {
                 is ResponseResult.Loading -> {
                     _galleryData.value = ResponseResult.Loading()
@@ -40,6 +40,9 @@ class GalleryViewModel  @Inject constructor(var useCase: GalleryApiUseCase) : Vi
             }
 
         }.launchIn(viewModelScope)
+    }
+
+    fun retry() {
     }
 
 }
