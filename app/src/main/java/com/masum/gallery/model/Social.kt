@@ -1,8 +1,8 @@
 package com.masum.gallery.model
 
 data class Social(
-    val instagram_username: String,
-    val paypal_email: Any,
-    val portfolio_url: String,
-    val twitter_username: String
+    var instagram_username: String?,
+    var paypal_email: Any?,
+    var portfolio_url: String?,
+    var twitter_username: String?
 )

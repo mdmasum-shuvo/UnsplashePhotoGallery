@@ -1,21 +1,20 @@
 package com.masum.gallery.model
 
 data class GalleryResponseItem(
-    val alt_description: String,
-    val blur_hash: String,
-    val color: String,
-    val created_at: String,
-    val description: String,
-    val height: Int,
-    val id: String,
-    val liked_by_user: Boolean,
-    val likes: Int,
-    val links: Links,
-    val promoted_at: String,
-    val sponsorship: Sponsorship,
-    val topic_submissions: TopicSubmissions,
-    val updated_at: String,
-    val urls: Urls,
-    val user: User,
-    val width: Int
+    var alt_description: String?,
+    var blur_hash: String?,
+    var color: String?,
+    var created_at: String?,
+    var description: String?,
+    var height: Int?,
+    var id: String?,
+    var liked_by_user: Boolean?,
+    var likes: Int?,
+    var links: Links?,
+    var promoted_at: String?,
+    var sponsorship: Sponsorship?,
+    var updated_at: String?,
+    var urls: Urls?,
+    var user: User?,
+    var width: Int?
 )

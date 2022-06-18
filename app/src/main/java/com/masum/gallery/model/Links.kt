@@ -1,8 +1,8 @@
 package com.masum.gallery.model
 
 data class Links(
-    val download: String,
-    val download_location: String,
-    val html: String,
-    val self: String
+    var download: String?,
+    var download_location: String?,
+    var html: String?,
+    var self: String?
 )

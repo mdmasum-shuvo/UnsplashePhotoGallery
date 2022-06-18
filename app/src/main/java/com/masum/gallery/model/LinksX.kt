@@ -1,11 +1,11 @@
 package com.masum.gallery.model
 
 data class LinksX(
-    val followers: String,
-    val following: String,
-    val html: String,
-    val likes: String,
-    val photos: String,
-    val portfolio: String,
-    val self: String
+    var followers: String?,
+    var following: String?,
+    var html: String?,
+    var likes: String?,
+    var photos: String?,
+    var portfolio: String?,
+    var self: String?
 )

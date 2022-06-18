@@ -1,8 +1,8 @@
 package com.masum.gallery.model
 
 data class Sponsorship(
-    val impression_urls: List<String>,
-    val sponsor: Sponsor,
-    val tagline: String,
-    val tagline_url: String
+    var impression_urls: List<String>?,
+    var sponsor: Sponsor?,
+    var tagline: String?,
+    var tagline_url: String?
 )

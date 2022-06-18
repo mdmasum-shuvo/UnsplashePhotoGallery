@@ -4,5 +4,5 @@ import com.masum.gallery.model.GalleryResponse
 import com.masum.gallery.model.GalleryResponseItem
 
 interface GalleryRepository {
-    suspend fun loadGallery(page:String):GalleryResponse
+    suspend fun loadGallery(page:String):List<GalleryResponseItem>
 }
