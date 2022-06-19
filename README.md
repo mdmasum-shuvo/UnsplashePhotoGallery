@@ -12,3 +12,23 @@ It's so simple to use that we even run unsplash.com on it! Get a photo Search ph
 
 To build this project the Unsplash API is used, which can be found here and follow the documentation:
 https://unsplash.com/documentation
+
+create project for unsplash api on that you find on this link.Get accesskey 
+and add this access key and the base url to the application on local.properties 
+
+access_key=48bHtgi********************************jXnU
+base_url=https://api.unsplash.com/
+
+## Dependencies
+
+The most important dependencies used are:
+- Retrofit to download the data from the Internet.
+- Moshi to convert the JSON data we are downloading.
+- GLide to download and cache images.
+- RecyclerView to display the Gallery photo in a list.
+
+The following components from the Jetpack library are used:
+- ViewModel
+- LiveData
+- Data Binding
+- Navigation
