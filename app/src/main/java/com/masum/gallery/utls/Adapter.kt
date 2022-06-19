@@ -13,7 +13,7 @@ import com.masum.gallery.databinding.ItemGalleryBinding
 import com.masum.gallery.model.GalleryResponseItem
 
 
-class FilterHistoryAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class GalleryAdapter(private val interaction: Interaction? = null) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var isLoading = true
     private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<GalleryResponseItem>() {
 
@@ -43,7 +43,7 @@ class FilterHistoryAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                     parent,
                     false
                 )
-                return DataViewHolder(binding)
+                return DataViewHolder(binding,interaction)
             }
             VIEW_TYPE_LOADING -> {
                 val binding: FooterStateBinding = DataBindingUtil.inflate(
@@ -96,11 +96,15 @@ class FilterHistoryAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         notifyDataSetChanged()
     }
 
-    class DataViewHolder constructor(private val binding: ItemGalleryBinding) :
+    class DataViewHolder constructor(private val binding: ItemGalleryBinding,private val interaction: Interaction?) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: GalleryResponseItem) {
             binding.imageUrl = item.urls!!.thumb
+
+            binding.item.setOnClickListener {
+                interaction!!.onItemClicked(item.urls!!.full!!)
+            }
         }
     }
 
@@ -123,4 +127,7 @@ class FilterHistoryAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private const val VIEW_TYPE_NORMAL = 1
     }
 
+    interface Interaction {
+        fun onItemClicked(url:String)
+    }
 }

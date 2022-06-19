@@ -42,7 +42,5 @@ class GalleryViewModel  @Inject constructor(var useCase: GalleryApiUseCase) : Vi
         }.launchIn(viewModelScope)
     }
 
-    fun retry() {
-    }
 
 }

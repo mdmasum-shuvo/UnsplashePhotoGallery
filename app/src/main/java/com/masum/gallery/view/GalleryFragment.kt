@@ -1,45 +1,46 @@
 package com.masum.gallery.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
+import android.view.MotionEvent
+import android.view.ScaleGestureDetector
+import android.view.ScaleGestureDetector.SimpleOnScaleGestureListener
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.masum.gallery.R
 import com.masum.gallery.common.BaseFragment
-import com.masum.gallery.common.Constant
 import com.masum.gallery.common.ResponseResult
 import com.masum.gallery.databinding.FragmentGalleryBinding
 import com.masum.gallery.utls.PaginationListener
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
-class GalleryFragment : BaseFragment(R.layout.fragment_gallery) {
+class GalleryFragment : BaseFragment(R.layout.fragment_gallery), GalleryAdapter.Interaction {
 
     private lateinit var binding: FragmentGalleryBinding
     private val viewModel by viewModels<GalleryViewModel>()
-    private lateinit var adapter: FilterHistoryAdapter
+    private lateinit var adapter: GalleryAdapter
     private var currentPage: Int = PaginationListener.PAGE_START
     private var isLastPage = false
     private var totalPage = 10
     private var isLoading = false
+
     private lateinit var layoutManager: GridLayoutManager
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentGalleryBinding.bind(view)
         viewModel.getGalleryPhoto(currentPage!!)
-        adapter=FilterHistoryAdapter()
-        layoutManager = GridLayoutManager(requireActivity(),2)
-        binding.rv.layoutManager=layoutManager
+        adapter = GalleryAdapter(this)
+        layoutManager = GridLayoutManager(requireActivity(), 2)
+        binding.rv.layoutManager = layoutManager
         binding.adapter = adapter
         initListener()
         observeData()
     }
+
+
 
     override fun initListener() {
         binding.rv.addOnScrollListener(object : PaginationListener(layoutManager) {
@@ -70,14 +71,11 @@ class GalleryFragment : BaseFragment(R.layout.fragment_gallery) {
         viewModel.galleryData.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is ResponseResult.Loading -> {
-                    //_galleryData.value = ResponseResult.Loading()
                     if (currentPage == 1) {
                         binding.refresh.isRefreshing = true
                     }
                 }
                 is ResponseResult.Success -> {
-                    // _galleryData.value = ResponseResult.Success(result.data)
-                   // hideLoader()
                     isLoading = false
                     if (currentPage == 1) {
                         isLastPage = false
@@ -91,22 +89,23 @@ class GalleryFragment : BaseFragment(R.layout.fragment_gallery) {
                     isLoading = false
                     isLastPage = true
                     if (currentPage == 1) {
-                        //showEmptyView()
                         adapter.submitList(emptyList())
                     } else {
-                     //   hideLoader()
                         adapter.loadingEffect(false)
                     }
-                    //showErrorDialog("Error!", dataResource.message)
-                    //adapter.removeLoader()
-                    //AppUtils.message(binding!!.root, result.message)
-                    }
-                else -> {
 
                 }
             }
 
         }
+    }
+
+    override fun onItemClicked(url: String) {
+        findNavController().navigate(
+            GalleryFragmentDirections.actionGalleryFragmentToFullScreenPhotoFragment(
+                url
+            )
+        )
     }
 
 

@@ -12,11 +12,21 @@
         tools:layout="@layout/fragment_gallery" >
         <action
             android:id="@+id/action_galleryFragment_to_fullScreenPhotoFragment"
-            app:destination="@id/fullScreenPhotoFragment" />
+            app:destination="@id/fullScreenPhotoFragment" >
+            <argument
+                android:name="url"
+                app:argType="string"
+                app:nullable="false" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/fullScreenPhotoFragment"
         android:name="com.masum.gallery.view.FullScreenPhotoFragment"
-        android:label="fragment_full_screen_photo"
-        tools:layout="@layout/fragment_full_screen_photo" />
+        android:label="Full screen View"
+        tools:layout="@layout/fragment_full_screen_photo" >
+        <argument
+            android:name="url"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
 </navigation>

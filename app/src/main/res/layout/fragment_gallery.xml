@@ -3,7 +3,7 @@
     <data>
         <variable
             name="adapter"
-            type="com.masum.gallery.view.FilterHistoryAdapter" />
+            type="com.masum.gallery.view.GalleryAdapter" />
     </data>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
