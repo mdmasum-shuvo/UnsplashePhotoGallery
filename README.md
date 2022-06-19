@@ -16,7 +16,7 @@ https://unsplash.com/documentation
 create project for unsplash api on that you find on this link.Get accesskey 
 and add this access key and the base url to the application on local.properties 
 
-access_key=48bHtgi********************************jXnU
+access_key=48bHtgi********************************jXnU </br>
 base_url=https://api.unsplash.com/
 
 ## Dependencies
