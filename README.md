@@ -26,6 +26,7 @@ The most important dependencies used are:
 - Moshi to convert the JSON data we are downloading.
 - GLide to download and cache images.
 - RecyclerView to display the Gallery photo in a list.
+- Hilt for the dependency injection .
 
 The following components from the Jetpack library are used:
 - ViewModel
