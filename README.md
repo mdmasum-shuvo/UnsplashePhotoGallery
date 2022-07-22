@@ -1,4 +1,4 @@
-# UnsplashePhotoGallery
+# UnsplashPhotoGallery
 
 I use here Unplash photo api. Unsplash photo api is an open source api for photo .Here is a lot of photo to view.
 The Unsplash API is a modern JSON API that surfaces all of the info you'll need to build any experience for your users. 
